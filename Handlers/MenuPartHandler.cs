@@ -6,7 +6,8 @@ using Orchard.ContentManagement.Handlers;
 using Orchard.Caching;
 using MainBit.Navigation.Services;
 
-namespace Orchard.Core.Navigation.Handlers {
+namespace MainBit.Core.Navigation.Handlers
+{
     [UsedImplicitly]
     public class MenuPartHandler : ContentHandler {
         private readonly IGoodMenuService _goodMenuService;

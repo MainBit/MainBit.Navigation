@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using MainBit.Navigation.Services;
 using System.Collections.Concurrent;
 
-namespace Opt.Commerce.Controllers
+namespace MainBit.Navigation.Controllers
 {
     [Admin]
     public class NavigationAdminController : Controller

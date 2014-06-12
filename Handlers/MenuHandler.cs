@@ -6,7 +6,7 @@ using Orchard.ContentManagement.Handlers;
 using Orchard.Core.Navigation.Services;
 using Orchard.Core.Title.Models;
 
-namespace Orchard.Core.Navigation.Handlers {
+namespace MainBit.Core.Navigation.Handlers {
     [UsedImplicitly]
     public class MenuHandler : ContentHandler {
         private readonly IGoodMenuService _goodMenuService;

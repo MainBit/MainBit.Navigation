@@ -1,4 +1,4 @@
-﻿Name: MainBit.Navigation
+﻿Name: MainBit Navigation
 AntiForgery: enabled
 Author: The Orchard Team
 Website: http://mainbit.com
