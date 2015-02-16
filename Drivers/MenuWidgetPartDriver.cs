@@ -134,47 +134,53 @@ namespace MainBit.Navigation.Drivers {
                     menuShape = shapeHelper.Breadcrumb();
                 }
                 else {
-                    IEnumerable<MenuItem> topLevelItems = menu.Items.ToList();
+                    var topLevelItems = menuItems.ToList();
 
-                    if (part.StartLevel > 1 && selectedPath != null) {
-                        // the selected path will return the whole selected hierarchy
-                        // intersecting will return the root selected menu item
-                        topLevelItems = topLevelItems.Intersect(selectedPath.Where(x => x.Selected)).ToList();
-                    }
-
-                    if (topLevelItems.Any()) {
-                        // apply start level by pushing childrens as top level items
-                        int i = 0;
-                        for (; i < part.StartLevel - 1; i++) {
-                            var temp = new List<MenuItem>();
-                            foreach (var menuItem in topLevelItems) {
+                    // apply start level by pushing children as top level items. When the start level is
+                    // greater than 1 (ie. below the top level), only menu items along the selected path
+                    // will be displayed.
+                    for (var i = 0; topLevelItems.Any() && i < part.StartLevel - 1; i++)
+                    {
+                        var temp = new List<MenuItem>();
+                        // should the menu be filtered on the currently displayed page ?
+                        if (part.ShowFullMenu)
+                        {
+                            foreach (var menuItem in topLevelItems)
+                            {
                                 temp.AddRange(menuItem.Items);
                             }
-                            topLevelItems = temp;
                         }
-
-                        // apply display level ?
-                        if(part.Levels > 0) {
-                            var current = topLevelItems.ToList();
-                            for (int j=1; j < part.Levels; j++ ) {
-                                var temp = new List<MenuItem>();
-                                foreach (var menuItem in current) {
-                                    temp.AddRange(menuItem.Items);
-                                }
-                                current = temp;
+                        else if (selectedPath != null)
+                        {
+                            topLevelItems = topLevelItems.Intersect(selectedPath.Where(x => x.Selected)).ToList();
+                            foreach (var menuItem in topLevelItems)
+                            {
+                                temp.AddRange(menuItem.Items);
                             }
-
-                            topLevelItems = current;
-
-                            // cut the sub-levels of any selected menu item
-                            foreach (var menuItem in topLevelItems) {
-                                menuItem.Items = Enumerable.Empty<MenuItem>();
-                            }                
-
                         }
-
-                        menuItems = topLevelItems;
+                        topLevelItems = temp;
                     }
+
+                    // limit the number of levels to display (down from and including the start level)
+                    if (part.Levels > 0)
+                    {
+                        var current = topLevelItems.ToList();
+                        for (var i = 1; current.Any() && i < part.Levels; i++)
+                        {
+                            var temp = new List<MenuItem>();
+                            foreach (var menuItem in current)
+                            {
+                                temp.AddRange(menuItem.Items);
+                            }
+                            current = temp;
+                        }
+                        // cut the sub-levels beneath any menu items that are at the lowest level being displayed
+                        foreach (var menuItem in current)
+                        {
+                            menuItem.Items = Enumerable.Empty<MenuItem>();
+                        }
+                    }
+                    menuItems = topLevelItems;
                 }
 
 
