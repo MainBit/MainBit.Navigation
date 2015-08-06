@@ -86,11 +86,6 @@
       <Name>Orchard.Core</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\MainBit.Common\MainBit.Common.csproj">
-      <Project>{3fc89605-8aa6-4e24-b954-f954de7d3c6d}</Project>
-      <Name>MainBit.Common</Name>
-      <Private>False</Private>
-    </ProjectReference>
     <ProjectReference Include="..\Orchard.Widgets\Orchard.Widgets.csproj">
       <Project>{194d3ccc-1153-474d-8176-fde8d7d0d0bd}</Project>
       <Name>Orchard.Widgets</Name>

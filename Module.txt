@@ -6,7 +6,7 @@ Version: 1.9.1
 OrchardVersion: 1.9.1
 Description: Description for the module
 FeatureDescription: Cache Orchard Menu
-Dependencies: Navigation, Orchard.Widgets, MainBit.Common
+Dependencies: Navigation
 Category: Content
 Features:
 	MainBit.Navigation.Alternates
