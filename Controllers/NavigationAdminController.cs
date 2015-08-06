@@ -8,19 +8,19 @@ namespace MainBit.Navigation.Controllers
     [Admin]
     public class NavigationAdminController : Controller
     {
-        private readonly IGoodMenuService _goodMenuService;
+        private readonly ICacheMenuItemService _cacheMenuItemService;
 
         public NavigationAdminController
         (
-            IGoodMenuService goodMenuService
+            ICacheMenuItemService cacheMenuItemService
         )
         {
-            _goodMenuService = goodMenuService;
+            _cacheMenuItemService = cacheMenuItemService;
         }
 
         public ActionResult Index(int id)
         {
-            _goodMenuService.ResetCache(id);
+            _cacheMenuItemService.ResetCache(id);
             return View();
         }
     }

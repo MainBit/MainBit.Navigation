@@ -1,11 +1,16 @@
-﻿Name: MainBit Navigation
+﻿Name: MainBit.Navigation
 AntiForgery: enabled
-Author: The Orchard Team
+Author: The MainBit Team
 Website: http://mainbit.com
-Version: 1.0
-OrchardVersion: 1.8
+Version: 1.9.1
+OrchardVersion: 1.9.1
 Description: Description for the module
-Dependencies: Navigation, MainBit.Common
+FeatureDescription: Cache Orchard Menu
+Dependencies: Navigation, Orchard.Widgets, MainBit.Common
+Category: Content
 Features:
-    MainBit.Navigation:
-        Description: Description for feature MainBit.Navigation.
+	MainBit.Navigation.Alternates
+		Name: MainBit.Navigation.Alternates
+		Description: Add zone name and widget name alternates for menu, menuItem, menuItemLink
+		Dependencies: Navigation, Orchard.Widgets
+		Category: Content

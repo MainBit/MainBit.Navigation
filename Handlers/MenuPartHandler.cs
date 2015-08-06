@@ -10,11 +10,11 @@ namespace MainBit.Core.Navigation.Handlers
 {
     [UsedImplicitly]
     public class MenuPartHandler : ContentHandler {
-        private readonly IGoodMenuService _goodMenuService;
+        private readonly ICacheMenuItemService _cacheMenuItemService;
 
-        public MenuPartHandler(IGoodMenuService goodMenuService)
+        public MenuPartHandler(ICacheMenuItemService cacheMenuItemService)
         {
-            _goodMenuService = goodMenuService;
+            _cacheMenuItemService = cacheMenuItemService;
 
             OnCreated<MenuPart>((context, part) => ResetCache(part));
             OnUpdated<MenuPart>((context, part) => ResetCache(part));
@@ -23,7 +23,7 @@ namespace MainBit.Core.Navigation.Handlers
 
         protected void ResetCache(MenuPart part)
         {
-            _goodMenuService.ResetCache(part.Record.MenuId);
+            _cacheMenuItemService.ResetCache(part.Record.MenuId);
         }
     }
 }
