@@ -10,10 +10,9 @@ namespace MainBit.Navigation.Controllers
     {
         private readonly ICacheMenuItemService _cacheMenuItemService;
 
-        public NavigationAdminController
-        (
+        public NavigationAdminController(
             ICacheMenuItemService cacheMenuItemService
-        )
+            )
         {
             _cacheMenuItemService = cacheMenuItemService;
         }
