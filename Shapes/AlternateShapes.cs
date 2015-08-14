@@ -23,31 +23,10 @@ using Orchard;
 using Orchard.Widgets.Models;
 using Orchard.Environment.Extensions;
 
-namespace MainBit.Navigation
+namespace MainBit.Navigation.Shapes
 {
     [OrchardFeature("MainBit.Navigation.Alternates")]
-    public class Shapes : IShapeTableProvider {
-        private readonly Work<WorkContext> _workContext;
-        private readonly Work<IResourceManager> _resourceManager;
-        private readonly Work<IHttpContextAccessor> _httpContextAccessor;
-        private readonly Work<IShapeFactory> _shapeFactory;
-
-        public Shapes(
-            Work<WorkContext> workContext, 
-            Work<IResourceManager> resourceManager,
-            Work<IHttpContextAccessor> httpContextAccessor,
-            Work<IShapeFactory> shapeFactory
-            ) {
-            _workContext = workContext;
-            _resourceManager = resourceManager;
-            _httpContextAccessor = httpContextAccessor;
-            _shapeFactory = shapeFactory;
-
-            T = NullLocalizer.Instance;
-        }
-
-        public Localizer T { get; set; }
-        public dynamic New { get { return _shapeFactory.Value;  } }
+    public class AlternateShapes : IShapeTableProvider {
 
         public void Discover(ShapeTableBuilder builder) {
             // the root page shape named 'Layout' is wrapped with 'Document'

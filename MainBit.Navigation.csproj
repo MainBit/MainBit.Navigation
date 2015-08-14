@@ -98,7 +98,8 @@
     <Compile Include="Services\CachedNavigationManager.cs" />
     <Compile Include="Services\CacheMenuItemService.cs" />
     <Compile Include="Services\ICacheMenuItemService.cs" />
-    <Compile Include="Shapes.cs" />
+    <Compile Include="Shapes\HashLinkShapes.cs" />
+    <Compile Include="Shapes\AlternateShapes.cs" />
     <Compile Include="Handlers\MenuPartHandler.cs" />
   </ItemGroup>
   <ItemGroup />
