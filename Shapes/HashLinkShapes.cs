@@ -22,6 +22,7 @@ using Orchard.Utility.Extensions;
 using Orchard;
 using Orchard.Widgets.Models;
 using Orchard.Environment.Extensions;
+using Orchard.Logging;
 
 namespace MainBit.Navigation.Shapes
 {
@@ -36,6 +37,8 @@ namespace MainBit.Navigation.Shapes
         {
             _httpContextAccessor = httpContextAccessor;
         }
+
+        public ILogger Logger { get; set; }
 
         public void Discover(ShapeTableBuilder builder) {
 
@@ -58,10 +61,10 @@ namespace MainBit.Navigation.Shapes
                             if (linkUrl.StartsWith("/"))
                             {
                                 var baseUrl = request.Url.GetLeftPart(UriPartial.Authority) + request.ApplicationPath.TrimEnd('/');
-                                linkUrl = baseUrl + (linkUrl == "/" ? string.Empty : linkUrl);
+                                linkUrl = baseUrl + linkUrl;
                             }
 
-                            if (linkUrl.Equals(request.Url.AbsoluteUri, StringComparison.InvariantCultureIgnoreCase))
+                            if (linkUrl.TrimEnd('/').Equals(request.Url.AbsoluteUri.TrimEnd('/'), StringComparison.InvariantCultureIgnoreCase))
                             {
                                 displaying.Shape.Href = '#' + segments[1];
                             }
