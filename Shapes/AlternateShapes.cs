@@ -29,8 +29,7 @@ namespace MainBit.Navigation.Shapes
     public class AlternateShapes : IShapeTableProvider {
 
         public void Discover(ShapeTableBuilder builder) {
-            // the root page shape named 'Layout' is wrapped with 'Document'
-            // and has an automatic zone creating behavior
+
             builder.Describe("Parts_MenuWidget")
                 .OnDisplaying(displaying => {
                     var contentItem = displaying.Shape.ContentItem as IContent;

@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using Orchard.ContentManagement;
+﻿using Orchard.ContentManagement;
 using Orchard.Core.Navigation.Models;
 using Orchard.Data;
 using Orchard.ContentManagement.Handlers;
@@ -8,7 +7,6 @@ using MainBit.Navigation.Services;
 
 namespace MainBit.Core.Navigation.Handlers
 {
-    [UsedImplicitly]
     public class MenuPartHandler : ContentHandler {
         private readonly ICacheMenuItemService _cacheMenuItemService;
 

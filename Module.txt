@@ -2,20 +2,22 @@
 AntiForgery: enabled
 Author: The MainBit Team
 Website: http://mainbit.com
-Version: 1.9.1
+Version: 1.9.2
 OrchardVersion: 1.9.1
 Description: Description for the module
-FeatureDescription: Cache Orchard Menu
-Dependencies: Navigation
-Category: Content
 Features:
+	MainBit.Navigation
+		Name: MainBit.Navigation
+		Description: Caches orchard menu items.
+		Dependencies: Navigation
+		Category: Content
 	MainBit.Navigation.Alternates
 		Name: MainBit.Navigation.Alternates
-		Description: Add zone name and widget name alternates for menu, menuItem, menuItemLink
+		Description: Adds zone name and widget name alternates for menu, menuItem and menuItemLink shapes.
 		Dependencies: Navigation, Orchard.Widgets
 		Category: Content
 	MainBit.Navigation.HashLinks
 		Name: MainBit.Navigation.HashLinks
-		Description: Removes the part of an url before hash if one is equal to the current page url
+		Description: Removes the part of an url before hash if one is equal to the requested url.
 		Dependencies: Navigation
 		Category: Content
